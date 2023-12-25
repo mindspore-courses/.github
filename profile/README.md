@@ -24,33 +24,13 @@
 
 ## 专题一：昇思MindSpore学习资料梳理
 
-
-<style>
-table th:first-of-type {
-    width: 5%;
-}
-table th:nth-of-type(2) {
-    width: 10%;
-}
-table th:nth-of-type(3) {
-    width: 20%;
-}
-table th:nth-of-type(4) {
-    width: 30%;
-}
-table th:nth-of-type(5) {
-    width: 25%;
-}
-</style>
-
-
 <table>
   <tr>
-      <th>编号</th>
-      <th>阶段</th>
-      <th>内容介绍</th>
-      <th>教程</th>
-      <th>视频</th>
+      <th style="width: 5%;">编号</th>
+      <th style="width: 8%;">阶段</th>
+      <th style="width: 32%;">内容介绍</th>
+      <th style="width: 30%;">教程</th>
+      <th style="width: 25%;">视频</th>
   </tr>
   <tr>
       <td rowspan="2">1</td>
