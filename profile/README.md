@@ -29,41 +29,83 @@
     <tr>
         <th>编号</th>
         <th>阶段</th>
-        <th>学习资源</th>
+        <th>内容介绍</th>
+        <th>教程</th>
+        <th>视频</th>
     </tr>
     <tr>
-        <td>1</td>
-        <td>入门</td>
+        <td rowspan="2">1</td>
+        <td rowspan="2">入门</td>
+        <td rowspan="2">昇思MindSpore基础使用，如何基于昇思MindSpore完成深度学习全流程</td>
+        <td rowspan="2">
+          <a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html">MindSpore官网-学习-教程-初学入门<strong>（函数式自动微分章节必看）</strong></a><br>
+        </td>
         <td>
-          <a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html">MindSpore官网-学习-教程-初学入门</a><br>
-          <a href="https://www.bilibili.com/video/BV16G4y1a7A8/?spm_id_from=333.999.0.0">全场景AI计算框架昇思MindSpore（视频）</a><br>
-          <a href="https://www.bilibili.com/video/BV1sd4y1d76X/?spm_id_from=333.999.0.0">OOP+FP新范式：以GAN网络为例(视频)</a>
+          <a href="https://www.bilibili.com/video/BV16G4y1a7A8/?spm_id_from=333.999.0.0">全场景AI计算框架昇思MindSpore</a>
         </td>
     </tr>
     <tr>
-        <td>2</td>
-        <td>领域</td>
-        <td>
-          <a href="https://www.mindspore.cn/tutorials/application/zh-CN/r2.2/index.html">MindSpore官网-学习-教程-应用案例(CV、NLP、生成式)</a><br>
-          <a href="https://openi.pcl.ac.cn/mindspore-courses/d2l-mindspore">MindSpore版《动手学深度学习》</a>
-        </td>
+      <td>
+        <a href="https://www.bilibili.com/video/BV1sd4y1d76X/?spm_id_from=333.999.0.0">OOP+FP新范式：以GAN网络为例</a>
+      </td>
     </tr>
     <tr>
-        <td>3</td>
-        <td>大模型</td>
-        <td>
-          <a href="https://github.com/mindspore-courses/step_into_llm">昇思MindSpore技术公开课</a><br>
-          <a href="https://space.bilibili.com/526894060/channel/seriesdetail?sid=3699266">MindSpore Transformers大模型套件讲解（视频）</a>
-        </td>
+      <td rowspan="2">2</td>
+      <td rowspan="2">领域</td>
+      <td>基于MindSpore在CV、NLP、生成式领域经典模型算法的应用案例实践</td>
+      <td>
+          <a href="https://www.mindspore.cn/tutorials/application/zh-CN/r2.2/index.html">MindSpore官网-学习-教程-应用案例(CV、NLP、生成式)</a>
+      </td>
+      <td>
+        /
+      </td>
     </tr>
     <tr>
-        <td>4</td>
-        <td>MindSpore高阶特性</td>
-        <td>
+      <td> MindSpore版《动手学深度学习》，包含深度学习的基础知识和预备知识，CV、NLP领域的深度学习技术；可作为另一条独立的学习路径</td>
+      <td>
+        <a href="https://openi.pcl.ac.cn/mindspore-courses/d2l-mindspore">MindSpore版《动手学深度学习》</a>
+      </td>
+      <td>
+        /
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">3</td>
+      <td rowspan="2">大模型</td>
+      <td>昇思MindSpore技术公开课大模型专题课程，紧跟技术热点，理论与实践相结合，手把手带领开发者学习大模型开发到部署全流程
+      <td>
+        <a href="https://github.com/mindspore-courses/step_into_llm">昇思MindSpore技术公开课（代码仓）</a>
+      </td>
+      <td>
+        <a href="https://space.bilibili.com/526894060/channel/seriesdetail?sid=3293489">昇思MindSpore技术公开课（视频合集）</a>
+      </td>
+    </tr>
+    <tr>
+      <td>大模型套件MindSpore Transformers（MindFormers）赋能培训</td>
+      <td>
+        第一期：<a href="https://blog.csdn.net/Kenji_Shinji/article/details/133902411">MindFormers大模型套件架构讲解与使用入门</a><br>
+        第二期：<a href="https://blog.csdn.net/Kenji_Shinji/article/details/133902503">MindFormers套件之大模型预训练和并行特性</a><br>
+        第三期：<a href="https://blog.csdn.net/Kenji_Shinji/article/details/133902572">MindFormers套件之大模型Lora微调</a><br>
+        第四期：<a href="https://blog.csdn.net/Kenji_Shinji/article/details/133902628">MindFormers套件之大模型文本生成和分布式在线推理</a><br>
+        第五期：<a href="https://blog.csdn.net/Kenji_Shinji/article/details/133902659">MindFormers套件之大模型开发实践</a>
+      </td>
+      <td><a href="https://space.bilibili.com/526894060/channel/seriesdetail?sid=3699266">MindFormers大模型套件赋能培训（视频合集）</a></td>
+    </tr>
+    <tr>
+        <td rowspan="2">4</td>
+        <td rowspan="2">MindSpore高阶特性</td>
+        <td rowspan="2">基于MindSpore的高阶操作，包含分布式并行、自定义算子、性能优化、复杂问题调试等</td>
+        <td rowspan="2">
           <a href="https://www.mindspore.cn/tutorials/experts/zh-CN/r2.2/index.html">MindSpore官网-学习-教程-深度开发</a><br>
-          <a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0">MindSpore性能调优（视频）</a><br>
-          <a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0">MindSpore分布式并行训练与大模型（视频）</a>
         </td>
+        <td>
+          <a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0">MindSpore性能调优</a>
+        </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0">MindSpore分布式并行训练与大模型
+      </td>
     </tr>
 </table>
 
