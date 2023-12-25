@@ -24,42 +24,43 @@
 
 ## 专题一：昇思MindSpore学习资料梳理
 
+> 点击二维码即可跳转到对应网站
+
 <table>
     <tr>
-        <th><center>编号</center></th>
-        <th><center>阶段</center></th>
-        <th> colspan="3"<center>学习资源</center></th>
+        <th>编号</th>
+        <th>阶段</th>
+        <th colspan="3">学习资源</th>
     </tr>
     <tr>
-        <td><center>1</center></td>
-        <td><center>入门</center></td>
-        <td><center><a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html"><img src="./MindSpore官网-学习-教程-初学入门.png""><br>MindSpore官网-学习-教程-初学入门</center></td>
-        <td><center><a href="https://www.bilibili.com/video/BV16G4y1a7A8/?spm_id_from=333.999.0.0"><img src="./全场景AI计算框架昇思MindSpore（视频）.png"><br>全场景AI计算框架昇思MindSpore（视频）</center></td>
-        <td><center><a href="https://www.bilibili.com/video/BV1sd4y1d76X/?spm_id_from=333.999.0.0"><img src="./OOP+FP新范式：以GAN网络为例.png""><br>OOP+FP新范式：以GAN网络为例</center></td>
+        <td>1</td>
+        <td>入门</td>
+        <td><a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html"><img src="./MindSpore官网-学习-教程-初学入门.png"></a></td>
+        <td><a href="https://www.bilibili.com/video/BV16G4y1a7A8/?spm_id_from=333.999.0.0"><img src="./全场景AI计算框架昇思MindSpore（视频）.png"></a></td>
+        <td><a href="https://www.bilibili.com/video/BV1sd4y1d76X/?spm_id_from=333.999.0.0"><img src="./OOP+FP新范式：以GAN网络为例.png""></a></td>
     </tr>
     <tr>
-        <td><center>2</center></td>
-        <td><center>领域</center></td>
-        <td><center><a href="https://www.mindspore.cn/tutorials/application/zh-CN/r2.2/index.html"><img src="./MindSpore官网-学习-教程-应用案例(CV、NLP、生成式).png"><br>MindSpore官网-学习-教程-应用案例(CV、NLP、生成式)</center></td>
-        <td><center><a href="https://openi.pcl.ac.cn/mindspore-courses/d2l-mindspore"><img src="./MindSpore版《动手学深度学习》.png"><br>MindSpore版《动手学深度学习》</center></td>
+        <td>2</td>
+        <td>领域</td>
+        <td><a href="https://www.mindspore.cn/tutorials/application/zh-CN/r2.2/index.html"><img src="./MindSpore官网-学习-教程-应用案例(CV、NLP、生成式).png"></a></td>
+        <td><a href="https://openi.pcl.ac.cn/mindspore-courses/d2l-mindspore"><img src="./MindSpore版《动手学深度学习》.png"></a></td>
         <td></td>
     </tr>
     <tr>
-        <td><center>3</center></td>
-        <td><center>大模型</center></td>
-        <td><center><a href="https://github.com/mindspore-courses/step_into_llm"><img src="./技术公开课（代码）.png"><br>技术公开课（代码）</center></td>
-        <td><center><a href="https://space.bilibili.com/526894060/channel/seriesdetail?sid=3699266"><img src="./MindFormers（视频）.png"><br>MindFormers（视频）</center></td>
+        <td>3</td>
+        <td>大模型</td>
+        <td><a href="https://github.com/mindspore-courses/step_into_llm"><img src="./技术公开课（代码）.png"></a></td>
+        <td><a href="https://space.bilibili.com/526894060/channel/seriesdetail?sid=3699266"><img src="./MindFormers（视频）.png"></a></td>
         <td></td>
     </tr>
     <tr>
-        <td><center>4</center></td>
-        <td><center>MindSpore高阶特性</center></td>
-        <td><center><a href="https://www.mindspore.cn/tutorials/experts/zh-CN/r2.2/index.html"><img src="./MindSpore官网-学习-教程-深度开发.png"><br>MindSpore官网-学习-教程-深度开发</center></td>
-        <td><center><a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0"><img src="./MindSpore性能调优（视频）.png"><br>MindSpore性能调优（视频）</center></td>
-        <td><center><a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0"><img src="./MindSpore分布式并行训练与大模型（视频）.png"><br>MindSpore分布式并行训练与大模型（视频）</center></td>
+        <td>4</td>
+        <td>MindSpore高阶特性</td>
+        <td><a href="https://www.mindspore.cn/tutorials/experts/zh-CN/r2.2/index.html"><img src="./MindSpore官网-学习-教程-深度开发.png"></a></td>
+        <td><a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0"><img src="./MindSpore性能调优（视频）.png"></a></td>
+        <td><a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0"><img src="./MindSpore分布式并行训练与大模型（视频）.png"></a></td>
     </tr>
 </table>
-
 
 ## 专题二： 智能基座&人才加速计划教辅教材专项
 
