@@ -25,12 +25,26 @@
 ## 专题一：昇思MindSpore学习资料梳理
 
 
+<style>
+table th:first-of-type {
+    width: 5%;
+}
+table th:nth-of-type(2) {
+    width: 10%;
+}
+table th:nth-of-type(3) {
+    width: 20%;
+}
+table th:nth-of-type(4) {
+    width: 30%;
+}
+table th:nth-of-type(5) {
+    width: 25%;
+}
+</style>
+
+
 <table>
-  <col style="width:50px">
-  <col style="width:100px">
-  <col style="width:300px">
-  <col style="width:300px">
-  <col style="width:250px">
   <tr>
       <th>编号</th>
       <th>阶段</th>
