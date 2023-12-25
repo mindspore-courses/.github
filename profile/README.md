@@ -28,9 +28,9 @@
   <tr>
       <th width="5%">编号</th>
       <th width="8%">阶段</th>
-      <th width="30%">内容介绍</th>
-      <th width="30%">教程</th>
-      <th width="25%">视频</th>
+      <th width="25%">内容介绍</th>
+      <th width="35%">教程</th>
+      <th width="27%">视频</th>
   </tr>
   <tr>
       <td rowspan="2">1</td>
