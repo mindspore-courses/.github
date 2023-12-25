@@ -30,21 +30,24 @@
     <tr>
         <th>编号</th>
         <th>阶段</th>
-        <th colspan="3">学习资源</th>
+        <th>学习资源</th>
     </tr>
     <tr>
         <td>1</td>
         <td>入门</td>
-        <td><a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html"><img src="./MindSpore官网-学习-教程-初学入门.png"></a></td>
-        <td><a href="https://www.bilibili.com/video/BV16G4y1a7A8/?spm_id_from=333.999.0.0"><img src="./全场景AI计算框架昇思MindSpore（视频）.png"></a></td>
-        <td><a href="https://www.bilibili.com/video/BV1sd4y1d76X/?spm_id_from=333.999.0.0"><img src="./OOP+FP新范式：以GAN网络为例.png""></a></td>
+        <td>
+          <a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html">MindSpore官网-学习-教程-初学入门</a><br>
+          <a href="https://www.bilibili.com/video/BV16G4y1a7A8/?spm_id_from=333.999.0.0">全场景AI计算框架昇思MindSpore（视频）</a><br>
+          <a href="https://www.bilibili.com/video/BV1sd4y1d76X/?spm_id_from=333.999.0.0">OOP+FP新范式：以GAN网络为例(视频)</a>
+        </td>
     </tr>
     <tr>
         <td>2</td>
         <td>领域</td>
-        <td><a href="https://www.mindspore.cn/tutorials/application/zh-CN/r2.2/index.html"><img src="./MindSpore官网-学习-教程-应用案例(CV、NLP、生成式).png"></a></td>
-        <td><a href="https://openi.pcl.ac.cn/mindspore-courses/d2l-mindspore"><img src="./MindSpore版《动手学深度学习》.png"></a></td>
-        <td></td>
+        <td>
+          <a href="https://www.mindspore.cn/tutorials/application/zh-CN/r2.2/index.html">MindSpore官网-学习-教程-应用案例(CV、NLP、生成式)</a><br>
+          <a href="https://openi.pcl.ac.cn/mindspore-courses/d2l-mindspore">MindSpore版《动手学深度学习》</a>
+        </td>
     </tr>
     <tr>
         <td>3</td>
