@@ -24,7 +24,6 @@
 
 ## 专题一：昇思MindSpore学习资料梳理
 
-> 点击二维码即可跳转到对应网站
 
 <table>
     <tr>
@@ -52,16 +51,19 @@
     <tr>
         <td>3</td>
         <td>大模型</td>
-        <td><a href="https://github.com/mindspore-courses/step_into_llm"><img src="./技术公开课（代码）.png"></a></td>
-        <td><a href="https://space.bilibili.com/526894060/channel/seriesdetail?sid=3699266"><img src="./MindFormers（视频）.png"></a></td>
-        <td></td>
+        <td>
+          <a href="https://github.com/mindspore-courses/step_into_llm">昇思MindSpore技术公开课</a><br>
+          <a href="https://space.bilibili.com/526894060/channel/seriesdetail?sid=3699266">MindSpore Transformers大模型套件讲解（视频）</a>
+        </td>
     </tr>
     <tr>
         <td>4</td>
         <td>MindSpore高阶特性</td>
-        <td><a href="https://www.mindspore.cn/tutorials/experts/zh-CN/r2.2/index.html"><img src="./MindSpore官网-学习-教程-深度开发.png"></a></td>
-        <td><a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0"><img src="./MindSpore性能调优（视频）.png"></a></td>
-        <td><a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0"><img src="./MindSpore分布式并行训练与大模型（视频）.png"></a></td>
+        <td>
+          <a href="https://www.mindspore.cn/tutorials/experts/zh-CN/r2.2/index.html">MindSpore官网-学习-教程-深度开发</a><br>
+          <a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0">MindSpore性能调优（视频）</a><br>
+          <a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0">MindSpore分布式并行训练与大模型（视频）</a>
+        </td>
     </tr>
 </table>
 
