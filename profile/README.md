@@ -26,11 +26,11 @@
 
 <table>
   <tr>
-      <th style="width: 5%;">编号</th>
-      <th style="width: 8%;">阶段</th>
-      <th style="width: 32%;">内容介绍</th>
-      <th style="width: 30%;">教程</th>
-      <th style="width: 25%;">视频</th>
+      <th width="5%">编号</th>
+      <th width="8%">阶段</th>
+      <th width="30%">内容介绍</th>
+      <th width="30%">教程</th>
+      <th width="25%">视频</th>
   </tr>
   <tr>
       <td rowspan="2">1</td>
