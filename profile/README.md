@@ -9,13 +9,13 @@
   </h3>
 
   <a href="https://www.mindspore.cn/">
-    <img alt="mindspore-website" src="./官方网站.png" width="300">
+    <img alt="mindspore-website" src="https://github.com/mindspore-courses/.github/blob/master/profile/mindspore-website.png" width="300">
   </a>
   <a href="https://gitee.com/mindspore">
-    <img alt="mindspore-gitee" src="./代码托管平台.png" width="330">
+    <img alt="mindspore-gitee" src="https://github.com/mindspore-courses/.github/blob/master/profile/mindspore-gitee.png" width="330">
   </a>
   <a href="https://github.com/mindspore-lab">
-    <img alt="mindspore-lab" src="./领域套件与扩展包.png" width="320">
+    <img alt="mindspore-lab" src="https://github.com/mindspore-courses/.github/blob/master/profile/mindspore-lab.png" width="320">
   </a>
 </div>
 
@@ -28,9 +28,9 @@
   <tr>
       <th width="5%">编号</th>
       <th width="8%">阶段</th>
-      <th width="25%">内容介绍</th>
+      <th width="22%">内容介绍</th>
       <th width="35%">教程</th>
-      <th width="27%">视频</th>
+      <th width="30%">视频</th>
   </tr>
   <tr>
       <td rowspan="2">1</td>
