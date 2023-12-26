@@ -9,13 +9,13 @@
   </h3>
 
   <a href="https://www.mindspore.cn/">
-    <img alt="mindspore-website" src="https://github.com/mindspore-courses/.github/blob/master/profile/mindspore-website.png" width="300">
+    <img alt="mindspore-website" src="https://github.com/mindspore-courses/.github/blob/master/profile/mindspore-website.png" width="27%">
   </a>
   <a href="https://gitee.com/mindspore">
-    <img alt="mindspore-gitee" src="https://github.com/mindspore-courses/.github/blob/master/profile/mindspore-gitee.png" width="330">
+    <img alt="mindspore-gitee" src="https://github.com/mindspore-courses/.github/blob/master/profile/mindspore-gitee.png" width="30%">
   </a>
   <a href="https://github.com/mindspore-lab">
-    <img alt="mindspore-lab" src="https://github.com/mindspore-courses/.github/blob/master/profile/mindspore-lab.png" width="320">
+    <img alt="mindspore-lab" src="https://github.com/mindspore-courses/.github/blob/master/profile/mindspore-lab.png" width="30%">
   </a>
 </div>
 
