@@ -38,7 +38,7 @@
       <td>官网教程-初学入门</td>
       <td>昇思MindSpore基础使用，如何基于昇思MindSpore完成深度学习全流程<strong>（函数式自动微分章节必看）</strong></td>
       <td>
-        PPT、代码、<a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html">教程</a>、<a href="https://www.bilibili.com/video/BV16G4y1a7A8">视频1</a>、<a href="https://www.bilibili.com/video/BV1sd4y1d76X">视频2</a>、活动
+        PPT、代码、<a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html">教程</a>、<a href="https://www.bilibili.com/video/BV16G4y1a7A8">视频（框架介绍）</a>、<a href="https://www.bilibili.com/video/BV1sd4y1d76X">视频（FP+OOP）</a>、活动
       </td>
   </tr>
   <tr>
@@ -95,7 +95,7 @@
       <td>官网教程-深度开发</td>
       <td>基于MindSpore的高阶操作，包含分布式并行、自定义算子、性能优化、复杂问题调试等</td>
       <td>
-        PPT、代码、<a href="https://www.mindspore.cn/tutorials/experts/zh-CN/r2.2/index.html">教程</a>、<a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0">视频1</a>、<a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0">视频2</a>、<a href="https://gitee.com/mindspore/community/issues/I8NMRT?from=project-issue">活动（初级）</a>、<a href="https://gitee.com/mindspore/community/issues/I7JVMP">活动（进阶）</a>
+        PPT、代码、<a href="https://www.mindspore.cn/tutorials/experts/zh-CN/r2.2/index.html">教程</a>、<a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0">视频（调试调优）</a>、<a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0">视频（分布式）</a>、<a href="https://gitee.com/mindspore/community/issues/I8NMRT?from=project-issue">活动（初级）</a>、<a href="https://gitee.com/mindspore/community/issues/I7JVMP">活动（进阶）</a>
       </td>
   </tr>
 </table>
