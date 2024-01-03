@@ -28,32 +28,19 @@
   <tr>
       <th width="5%">编号</th>
       <th width="8%">阶段</th>
-      <th width="25%">课程</th>
+      <th width="15%">课程</th>
       <th width="32%">内容介绍</th>
-      <th width="30%">链接</th>
+      <th width="40%">链接</th>
   </tr>
   <tr>
-      <td rowspan="3">1</td>
-      <td rowspan="3">入门</td>
+      <td>1</td>
+      <td>入门</td>
       <td>官网教程-初学入门</td>
       <td>昇思MindSpore基础使用，如何基于昇思MindSpore完成深度学习全流程<strong>（函数式自动微分章节必看）</strong></td>
       <td>
-        PPT、代码、<a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html">教程</a>、视频、活动
+        PPT、代码、<a href="https://www.mindspore.cn/tutorials/zh-CN/r2.2/index.html">教程</a>、<a href="https://www.bilibili.com/video/BV16G4y1a7A8">视频1</a>、<a href="https://www.bilibili.com/video/BV1sd4y1d76X">视频2</a>、活动
       </td>
   </tr>
-  <tr>
-      <td>（参考）全场景AI计算框架昇思MindSpore</td>
-      <td>补充学习资料，选看，昇思MindSpore框架整体介绍，及简单代码演示</td>
-      <td>
-        PPT、代码、<a href="https://www.bilibili.com/video/BV16G4y1a7A8">视频</a>、活动
-  </tr>
-  <tr>
-      <td>（参考）OOP+FP新范式：以GAN网络为例</td>
-      <td>补充学习资料，选看，函数式编程视频讲解</td>
-      <td>
-        PPT、代码、<a href="https://www.bilibili.com/video/BV1sd4y1d76X">视频</a>、活动
-  </tr>
-
   <tr>
     <td rowspan="2">2</td>
     <td rowspan="2">实践</td>
@@ -103,29 +90,13 @@
     <td><a href="https://blog.csdn.net/Kenji_Shinji/article/details/133902659">PPT</a>、代码、教程、<a href="https://www.bilibili.com/video/BV1em4y1N7Lw/?spm_id_from=333.999.0.0&vd_source=f014ac91666d4c46c85b0393f525e37a">视频</a>、活动</td>
   </tr>
   <tr>
-      <td rowspan="3">4</td>
-      <td rowspan="3">MindSpore高阶特性</td>
+      <td>4</td>
+      <td>MindSpore高阶特性</td>
       <td>官网教程-深度开发</td>
       <td>基于MindSpore的高阶操作，包含分布式并行、自定义算子、性能优化、复杂问题调试等</td>
       <td>
-        PPT、代码、<a href="https://www.mindspore.cn/tutorials/experts/zh-CN/r2.2/index.html">教程</a>、视频、<a href="https://gitee.com/mindspore/community/issues/I8NMRT?from=project-issue">活动（初级）</a>、<a href="https://gitee.com/mindspore/community/issues/I7JVMP">活动（进阶）</a>
+        PPT、代码、<a href="https://www.mindspore.cn/tutorials/experts/zh-CN/r2.2/index.html">教程</a>、<a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0">视频1</a>、<a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0">视频2</a>、<a href="https://gitee.com/mindspore/community/issues/I8NMRT?from=project-issue">活动（初级）</a>、<a href="https://gitee.com/mindspore/community/issues/I7JVMP">活动（进阶）</a>
       </td>
-  </tr>
-  <tr>
-    <td>（参考）性能调优</td>
-    <td>补充学习资料，选看，性能调优视频讲解</td>
-    <td>
-      PPT、代码、教程、<a href="https://www.bilibili.com/video/BV1h14y1b7e2/?spm_id_from=333.999.0.0">视频</a>、活动
-    </td>
-  </tr>
-  <tr>
-    <td>（参考）分布式并行训练与大模型</td>
-    <td>补充学习资料，选看，分布式并行训练与大模型特性视频讲解</td>
-    <td>
-      PPT、代码、教程、<a href="https://www.bilibili.com/video/BV1MT411c761/?spm_id_from=333.999.0.0">视频</a>、活动
-    </td>
-  </tr>
-  <tr>
   </tr>
 </table>
 
