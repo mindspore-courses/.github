@@ -28,9 +28,9 @@
   <tr>
       <th width="5%">编号</th>
       <th width="8%">阶段</th>
-      <th width="15%">课程</th>
+      <th width="20%">课程</th>
       <th width="32%">内容介绍</th>
-      <th width="40%">链接</th>
+      <th width="35%">链接</th>
   </tr>
   <tr>
       <td>1</td>
