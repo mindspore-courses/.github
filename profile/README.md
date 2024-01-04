@@ -47,7 +47,7 @@
     <td>官网教程-应用案例</td>
     <td>基于MindSpore在CV、NLP、生成式领域经典模型算法的应用案例实践</td>
     <td>
-      PPT、<a href="https://www.mindspore.cn/tutorials/application/zh-CN/r2.0/index.html">、代码</a>、书】、视频、<a href="https://gitee.com/mindspore/community/issues/I6Q8R9">活动（初级）</a>、<a href="https://gitee.com/mindspore/community/issues/I6Q8R0">活动（进阶）</a><br>
+      PPT、<a href="https://www.mindspore.cn/tutorials/application/zh-CN/r2.0/index.html">代码</a>、书、视频、<a href="https://gitee.com/mindspore/community/issues/I6Q8R9">活动（初级）</a>、<a href="https://gitee.com/mindspore/community/issues/I6Q8R0">活动（进阶）</a><br>
     </td>
   </tr>
   <tr>
@@ -83,7 +83,7 @@
   </tr>
   <tr>
     <td>第四期：大模型文本生成和分布式在线推理</td>
-    <td><a href="https://blog.csdn.net/Kenji_Shinji/article/details/133902628">PPT</a>、代码、教程、<a href="https://www.bilibili.com/video/BV1cG411o7ET/?spm_id_from=333.999.0.0&vd_source=f014ac91666d4c46c85b0393f525e37a">视频</a>、活动</td>
+    <td><a href="https://blog.csdn.net/Kenji_Shinji/article/details/133902628">PPT</a>、代码、书、<a href="https://www.bilibili.com/video/BV1cG411o7ET/?spm_id_from=333.999.0.0&vd_source=f014ac91666d4c46c85b0393f525e37a">视频</a>、活动</td>
   </tr>
   <tr>
     <td>第五期：大模型开发实践</td>
