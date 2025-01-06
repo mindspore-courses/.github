@@ -191,6 +191,10 @@
   </tr>
 </table>
 
+## 专题三：基于MindSpore的案例
+
+[下载案例列表](https://mindspore-courses.obs.cn-north-4.myhuaweicloud.com/mindspore-courses/%E5%9F%BA%E4%BA%8EMindSpore%E7%9A%84%E6%A1%88%E4%BE%8B.xlsx)
+
 
 ## 交流
 
