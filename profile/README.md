@@ -9,8 +9,6 @@
 
 - **Competitions** —— The *MindSpore Model Innovation Challenge - Season 1* concludes successfully! Winners list announced. ([*View details*](https://mp.weixin.qq.com/s/ITHLEqEXew03yHcmdt6cSg))
 
-- **Application Examples** —— Awesome projects from the *MindSpre Innovation Bootcamp* are continuously being updated. Stay tuned for more!
-
 ## MindSpore Resource Overview
 
 <table>
