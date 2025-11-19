@@ -7,7 +7,7 @@ body:
   attributes:
     label: Checklist
     options:
-    - label: 1. I have read [Contributing Guidlines](${{ github.server_url }}/${{ github.repository }}/blob/main/docs/wiki/Contributing-Guidelines.md).
+    - label: 1. I have read [Contributing Guidlines](https://github.com/mindspore-courses/.github/blob/master/docs/wiki/Contributing-Guidelines.md).
     - label: 2. If the issue you raised is not a feature but a question, please raise a discussion at Discussions. Otherwise, it will be closed.
 - type: textarea
   attributes:

@@ -22,7 +22,7 @@ Please attach **logs, screenshots or reports** demonstrating that the code runs 
 
 # Checklist
 
-- [ ] Read and followed the [Contributing Guidelines](${{ github.server_url }}/${{ github.repository }}/blob/main/docs/wiki/Contributing-Guidelines.md).
+- [ ] Read and followed the [Contributing Guidelines](https://github.com/mindspore-courses/.github/blob/master/docs/wiki/Contributing-Guidelines.md).
 - [ ] Self-tested locally to ensure the code runs correctly and achieves expected results (all CI checks expected to pass).
 - [ ] Updated documentation if needed.
 - [ ] Verified accuracy or performance benchmarks if applicable.
