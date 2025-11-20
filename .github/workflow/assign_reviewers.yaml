@@ -1,0 +1,215 @@
+name: Auto Assign Reviewers
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+jobs:
+  get-reviewers:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Generate GitHub App token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout org .github repo (for CODEOWNERS)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/.github
+          path: .github-org
+          ref: main
+          token: ${{ steps.generate-token.outputs.token }}
+
+      - name: Get modified files in PR
+        id: modified-files
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ steps.generate-token.outputs.token }}
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+            });
+            const filePaths = files.map(f => f.filename.replace(/^\//, '')).join(';');
+            console.log('Semicolon-delimited files:', filePaths);
+            return filePaths;
+
+      - name: Parse .github CODEOWNERS to find reviewers
+        id: codeowners-parser
+        run: |
+
+          # Get basic info
+          CURRENT_REPO=$(basename "${{ github.repository }}")
+          PR_AUTHOR="${{ github.actor }}"
+          CODEOWNERS_PATH=".github-org/.github/CODEOWNERS"
+
+          echo "=== Basic Info ==="
+          echo "Current repository: $CURRENT_REPO"
+          echo "PR author: $PR_AUTHOR"
+          echo "Org CODEOWNERS path: $CODEOWNERS_PATH"
+
+          # Check if CODEOWNERS exists
+          if [ ! -f "$CODEOWNERS_PATH" ]; then
+            echo "Error: Org CODEOWNERS file not found in .github repo"
+            exit 1
+          fi
+
+          # Extract and normalize all rules
+          all_rules=$(grep -v '^#\|^$' "$CODEOWNERS_PATH")
+
+          # Extract repo-specific rules
+          repo_specific_rules=$(echo "$all_rules" | grep -E "^/$CURRENT_REPO/")
+          # Extract global rules
+          org_root_rules=$(echo "$all_rules" | grep -E '^/\.[[:space:]]+@')
+
+          # Extract orgnization owners
+          org_owners=$(echo "$org_root_rules" | sed -E 's|^/\.[[:space:]]+@?||; s/[[:space:]]+$//' | tr ' ' '\n' | sort -u)
+          if [ -z "$org_owners" ]; then
+            echo "Error: No org fallback owners found in CODEOWNERS (expect: /. @org-owner1 [@org-owner2 ...])"
+            exit 1
+          fi
+          echo -e "\n=== Org Fallback Owners (from CODEOWNERS /. rule) ==="
+          echo "$org_owners" | while read -r owner; do
+            echo " - $owner"
+          done
+          org_owner_count=$(echo "$org_owners" | wc -l | tr -d '[:space:]')
+          echo "Total org fallback owners extracted: $org_owner_count"
+
+          # Get semicolon-delimited modified files from PR and split into array
+          modified_files_str=${{ steps.modified-files.outputs.result }}
+          IFS=';' read -ra modified_files <<< "$modified_files_str"
+          [ ${#modified_files[@]} -eq 0 ] && { echo "reviewers=" >> "$GITHUB_OUTPUT"; exit 0; }
+
+          # Verify split worked
+          echo "Split modified files into ${#modified_files[@]} files:"
+          for file in "${modified_files[@]}"; do
+            echo " - $file"
+          done
+
+          # ======================
+          # Step 1: Prioritize Repository-Specific Owners
+          # ======================
+
+          declare -A repo_owners
+
+          if [ -n "$repo_specific_rules" ]; then
+            echo -e "\n=== Processing Repository-Specific Rules ==="
+            # Directly extract owners from top-level repo rules (e.g., /repo-a/ @user1 @user2)
+            repo_owners_str=$(echo "$repo_specific_rules" |
+              sed -E "s|^/$CURRENT_REPO/[[:space:]]*||" |  # Remove "/repo-a/" prefix
+              tr -s ' ' '\n' |                             # Split owners into lines
+              grep -E '^@' |                               # Keep only @-prefixed entries
+              sed 's/^@//')                                # Remove @ symbol
+
+            # Populate associative array (auto-deduplicate)
+            for owner in $repo_owners_str; do
+              repo_owners["$owner"]=1
+              echo "Found repo owner: $owner"
+            done
+          fi
+
+          # ======================
+          # Step 2: Build Final Reviewer List (Exclude PR Author)
+          # ======================
+          declare -A final_reviewers
+
+          # First add repository-specific owners (exclude PR author)
+          if [ ${#repo_owners[@]} -gt 0 ]; then
+            echo -e "\n=== Repository-Specific Owners (After Exclusion) ==="
+            for owner in "${!repo_owners[@]}"; do
+              if [ "$owner" != "$PR_AUTHOR" ]; then
+                final_reviewers["$owner"]=1
+                echo "Added repo owner: $owner (not PR author)"
+              else
+                echo "Skipped repo owner: $owner (matches PR author)"
+              fi
+            done
+          fi
+
+          # If no valid repo owners, add org fallback owners (exclude PR author)
+          if [ ${#final_reviewers[@]} -eq 0 ]; then
+            echo -e "\n=== No Valid Repo Owners, Using Org Fallback ==="
+            for org_owner in $org_owners; do
+              clean_owner=$(echo "$org_owner" | sed 's/^@//')  # Handle residual @ symbols if present
+              if [ "$clean_owner" != "$PR_AUTHOR" ]; then
+                final_reviewers["$clean_owner"]=1
+                echo "Added org owner: $clean_owner"
+              else
+                echo "Skipped org owner: $clean_owner (matches PR author)"
+              fi
+            done
+          fi
+
+          # ======================
+          # Step 3: Output Final Result (Validation + Formatting)
+          # ======================
+          if [ ${#final_reviewers[@]} -eq 0 ]; then
+            echo "Error: No valid reviewers found (all are PR author)"
+            exit 1
+          fi
+
+          # Convert to comma-separated string
+          unique_reviewers=$(echo "${!final_reviewers[@]}" | tr ' ' ',' | sed 's/^,//;s/,$//')
+          echo "reviewers=$unique_reviewers" >> "$GITHUB_OUTPUT"
+          echo -e "\n=== Final Reviewers ==="
+          echo "$unique_reviewers"
+
+
+      - name: Assign reviewers and comment
+        if: >
+          steps.codeowners-parser.outputs.reviewers != ''
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ steps.generate-token.outputs.token }}
+          script: |
+            const core = require('@actions/core');
+            const targetReviewers = '${{ steps.codeowners-parser.outputs.reviewers }}'.split(',').filter(r => r.trim());
+
+            if (targetReviewers.length === 0) {
+              core.info("No valid reviewers to process, skipping.");
+              return;
+            }
+
+            const prNumber = context.issue.number;
+            const repoInfo = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            };
+
+            try {
+              // 1. Fetch currently assigned reviewers
+              const { data: currentReviews } = await github.rest.pulls.listRequestedReviewers(repoInfo);
+              const currentReviewers = currentReviews.users.map(user => user.login);
+              core.info(`Current assigned reviewers: ${currentReviewers.join(', ')}`);
+
+              // 2. Assign only missing reviewers
+              const missingReviewers = targetReviewers.filter(r => !currentReviewers.includes(r));
+              if (missingReviewers.length > 0) {
+                await github.rest.pulls.requestReviewers({
+                  ...repoInfo,
+                  reviewers: missingReviewers
+                });
+                core.info(`Assigned missing reviewers: ${missingReviewers.join(', ')}`);
+              } else {
+                core.info("All target reviewers are already assigned.");
+              }
+
+              // 3. Add comment mentioning all reviewers
+              const commentReviewers = targetReviewers.map(r => `@${r}`).join(' ');
+              await github.rest.issues.createComment({
+                ...repoInfo,
+                body: `The following reviewers have been auto-assigned: ${commentReviewers}.
+                Please proceed with the review at your earliest convenience. You may also request additional reviewers if appropriate. Thank you.`
+              });
+
+            } catch (error) {
+              core.error(`Failed to assign reviewers or add comment: ${error.message}`);
+              core.warning("Reviewer processing failed, but workflow will continue.");
+            }
