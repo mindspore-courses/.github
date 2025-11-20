@@ -1,0 +1,14 @@
+# .github/CODEOWNERS
+
+# Repository-specific rules (highest priority)
+/step_into_llm/ @qhzhuang
+/Deep-Learning-Principles-and-Practice-with-MindSpore/ @qhzhuang
+/MindSpore-Compatible-Distributed-Training-Principles-and-Practices/ @qhzhuang
+/competition/ @qhzhuang
+
+/applications/ @xing-yiren
+/orange-pi-mindspore/ @xing-yiren
+/d2l-mindspore/ @xing-yiren
+
+# Organization-wide global rules (fallback, 2nd)
+/. @wang-hua-2019 @lvyufeng
