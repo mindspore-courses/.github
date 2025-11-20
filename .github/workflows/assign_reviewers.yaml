@@ -22,7 +22,7 @@ jobs:
         with:
           repository: ${{ github.repository_owner }}/.github
           path: .github-org
-          ref: main
+          ref: master
           token: ${{ steps.generate-token.outputs.token }}
 
       - name: Get modified files in PR
