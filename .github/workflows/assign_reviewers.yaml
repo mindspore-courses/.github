@@ -75,9 +75,9 @@ jobs:
           all_rules=$(grep -v '^#\|^$' "$CODEOWNERS_PATH")
 
           # Extract repo-specific rules
-          repo_specific_rules=$(echo "$all_rules" | grep -E "^/$CURRENT_REPO/")
+          repo_specific_rules=$(echo "$all_rules" | grep -E "^/$CURRENT_REPO/" || true)
           # Extract global rules
-          org_root_rules=$(echo "$all_rules" | grep -E '^/\.[[:space:]]+@')
+          org_root_rules=$(echo "$all_rules" | grep -E '^/\.[[:space:]]+@' || true)
 
           # Extract orgnization owners
           org_owners=$(echo "$org_root_rules" | sed -E 's|^/\.[[:space:]]+@?||; s/[[:space:]]+$//' | tr ' ' '\n' | sort -u)
@@ -113,16 +113,17 @@ jobs:
             echo -e "\n=== Processing Repository-Specific Rules ==="
             # Directly extract owners from top-level repo rules (e.g., /repo-a/ @user1 @user2)
             repo_owners_str=$(echo "$repo_specific_rules" |
-              sed -E "s|^/$CURRENT_REPO/[[:space:]]*||" |  # Remove "/repo-a/" prefix
-              tr -s ' ' '\n' |                             # Split owners into lines
-              grep -E '^@' |                               # Keep only @-prefixed entries
-              sed 's/^@//')                                # Remove @ symbol
+              sed -E "s|^/$CURRENT_REPO/[[:space:]]*||" |
+              tr -s ' ' '\n' |
+              grep -E '^@' |
+              sed 's/^@//')
 
-            # Populate associative array (auto-deduplicate)
             for owner in $repo_owners_str; do
               repo_owners["$owner"]=1
               echo "Found repo owner: $owner"
             done
+          else
+            echo -e "\n=== No Repository-Specific Rules Found for $CURRENT_REPO ==="
           fi
 
           # ======================
