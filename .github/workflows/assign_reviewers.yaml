@@ -50,6 +50,9 @@ jobs:
         id: codeowners-parser
         run: |
 
+          set -euo pipefail
+          trap 'echo "❌ Error occurred at line $LINENO: $BASH_COMMAND" >&2' ERR
+
           # Get basic info
           CURRENT_REPO=$(basename "${{ github.repository }}")
           PR_AUTHOR="${{ github.actor }}"
@@ -64,6 +67,8 @@ jobs:
           if [ ! -f "$CODEOWNERS_PATH" ]; then
             echo "Error: Org CODEOWNERS file not found in .github repo"
             exit 1
+          else
+            echo "✅ CODEOWNERS file found!"
           fi
 
           # Extract and normalize all rules
