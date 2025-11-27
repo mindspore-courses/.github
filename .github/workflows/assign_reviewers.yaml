@@ -25,6 +25,12 @@ jobs:
           ref: master
           token: ${{ steps.generate-token.outputs.token }}
 
+      - name: Debug .github-org directory
+        run: |
+          echo "=== .github-org directory structure ==="
+          ls -la .github-org/
+          ls -la .github-org/.github/  # 查看是否有CODEOWNERS
+
       - name: Get modified files in PR
         id: modified-files
         uses: actions/github-script@v7
