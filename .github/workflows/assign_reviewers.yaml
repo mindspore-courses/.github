@@ -80,7 +80,7 @@ jobs:
           org_root_rules=$(echo "$all_rules" | grep -E '^/\.[[:space:]]+@' || true)
 
           # Extract orgnization owners
-          org_owners=$(echo "$org_root_rules" | sed -E 's|^/\.[[:space:]]+@?||; s/[[:space:]]+$//' | tr ' ' '\n' | sort -u)
+          org_owners=$(echo "$org_root_rules" | sed -E 's|^/\.[[:space:]]+@?||; s/[[:space:]]+$//' | tr ' ' '\n' | sed 's/^@//' | sort -u)
           if [ -z "$org_owners" ]; then
             echo "Error: No org fallback owners found in CODEOWNERS (expect: /. @org-owner1 [@org-owner2 ...])"
             exit 1
@@ -108,6 +108,7 @@ jobs:
           # ======================
 
           declare -A repo_owners
+          : ${repo_owners:=()}
 
           if [ -n "$repo_specific_rules" ]; then
             echo -e "\n=== Processing Repository-Specific Rules ==="
