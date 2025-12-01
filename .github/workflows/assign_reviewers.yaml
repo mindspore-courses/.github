@@ -107,7 +107,7 @@ jobs:
           # Step 1: Prioritize Repository-Specific Owners
           # ======================
 
-          declare -A repo_owners
+          declare -A repo_owners=()
 
           if [ -n "$repo_specific_rules" ]; then
             echo -e "\n=== Processing Repository-Specific Rules ==="
@@ -119,8 +119,9 @@ jobs:
               sed 's/^@//')
 
             for owner in $repo_owners_str; do
-              repo_owners["$owner"]=1
-              echo "Found repo owner: $owner"
+              if [ -n "$owner" ] && [ "$owner" != "0" ]; then
+                repo_owners["$owner"]=1
+                echo "Found repo owner: $owner"
             done
           else
             echo -e "\n=== No Repository-Specific Rules Found for $CURRENT_REPO ==="
@@ -130,9 +131,18 @@ jobs:
           # Step 2: Build Final Reviewer List (Exclude PR Author)
           # ======================
           declare -A final_reviewers
+          has_valid_repo_owners=false
 
-          # First add repository-specific owners (exclude PR author)
-          if [ ${#repo_owners[@]} -gt 0 ]; then
+          # Check for valid owners
+          for owner in "${!repo_owners[@]}"; do
+            if [ -n "$owner" ] && [ "$owner" != "0" ]; then
+              has_valid_repo_owners=true
+              break
+            fi
+          done
+
+          # Process valid repo owners
+          if [ "$has_valid_repo_owners" = true ]; then
             echo -e "\n=== Repository-Specific Owners (After Exclusion) ==="
             for owner in "${!repo_owners[@]}"; do
               if [ "$owner" != "$PR_AUTHOR" ]; then
