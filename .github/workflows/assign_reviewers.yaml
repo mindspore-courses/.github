@@ -122,6 +122,7 @@ jobs:
               if [ -n "$owner" ] && [ "$owner" != "0" ]; then
                 repo_owners["$owner"]=1
                 echo "Found repo owner: $owner"
+              fi
             done
           else
             echo -e "\n=== No Repository-Specific Rules Found for $CURRENT_REPO ==="
