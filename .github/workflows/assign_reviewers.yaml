@@ -131,7 +131,7 @@ jobs:
           # ======================
           # Step 2: Build Final Reviewer List (Exclude PR Author)
           # ======================
-          declare -A final_reviewers
+          declare -A final_reviewers=()
           has_valid_repo_owners=false
 
           # Check for valid owners
@@ -160,7 +160,7 @@ jobs:
             echo -e "\n=== No Valid Repo Owners, Using Org Fallback ==="
             for org_owner in $org_owners; do
               clean_owner=$(echo "$org_owner" | sed 's/^@//')  # Handle residual @ symbols if present
-              if [ "$clean_owner" != "$PR_AUTHOR" ]; then
+              if [ -n "$clean_owner" ] && [ "$clean_owner" != "0" ] && [ "$clean_owner" != "$PR_AUTHOR" ]; then
                 final_reviewers["$clean_owner"]=1
                 echo "Added org owner: $clean_owner"
               else
