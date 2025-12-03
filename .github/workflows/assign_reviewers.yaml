@@ -1,6 +1,7 @@
 name: Auto Assign Reviewers
 
 on:
+  workflow_call:
   pull_request_target:
     types: [opened, synchronize]
 
