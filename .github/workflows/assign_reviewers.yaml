@@ -192,6 +192,17 @@ jobs:
           github-token: ${{ steps.generate-token.outputs.token }}
           script: |
             const targetReviewers = '${{ steps.codeowners-parser.outputs.reviewers }}'.split(',').filter(r => r.trim());
+            const prNumber = context.issue.number;
+            const repoOwner = context.repo.owner;
+            const repoName = context.repo.repo;
+
+            core.info(`=== [Debug] Assign Reviewers Start ===`);
+            core.info(`PR Number: ${prNumber}`);
+            core.info(`Repo Owner: ${repoOwner}`);
+            core.info(`Repo Name: ${repoName}`);
+            core.info(`Original Reviewers Input: ${{ steps.codeowners-parser.outputs.reviewers }}`);
+            core.info(`Filtered Valid Reviewers: ${targetReviewers.join(', ')}`);
+            core.info(`=======================================`);
 
             if (targetReviewers.length === 0) {
               core.info("No valid reviewers to process, skipping.");
@@ -205,33 +216,57 @@ jobs:
               pull_number: prNumber
             };
 
+            // Track execution status of each sub-step for failure localization
+            let fetchCurrentReviewersSuccess = false;
+            let assignMissingReviewersSuccess = false;
+            let addCommentSuccess = false;
+
             try {
               // 1. Fetch currently assigned reviewers
+              core.info(`🔧 Step 1/3: Fetching currently assigned reviewers for PR #${prNumber}`);
               const { data: currentReviews } = await github.rest.pulls.listRequestedReviewers(repoInfo);
               const currentReviewers = currentReviews.users.map(user => user.login);
               core.info(`Current assigned reviewers: ${currentReviewers.join(', ')}`);
+              core.info(`✅ Step 1/3 Success: Current assigned reviewers: ${currentReviewers.length > 0 ? currentReviewers.join(', ') : 'None'}`);
+              fetchCurrentReviewersSuccess = true;
 
               // 2. Assign only missing reviewers
+              core.info(`🔧 Step 2/3: Checking for missing reviewers`);
               const missingReviewers = targetReviewers.filter(r => !currentReviewers.includes(r));
               if (missingReviewers.length > 0) {
                 await github.rest.pulls.requestReviewers({
                   ...repoInfo,
                   reviewers: missingReviewers
                 });
-                core.info(`Assigned missing reviewers: ${missingReviewers.join(', ')}`);
+                core.info(`✅ Step 2/3 Success: Assigned missing reviewers: ${missingReviewers.join(', ')}`);
+                assignMissingReviewersSuccess = true;
               } else {
-                core.info("All target reviewers are already assigned.");
+                core.info(`✅ Step 2/3 Success: All target reviewers are already assigned.`);
+                assignMissingReviewersSuccess = true;
               }
 
               // 3. Add comment mentioning all reviewers
+              core.info(`🔧 Step 3/3: Adding auto-assignment comment to PR #${prNumber}`);
               const commentReviewers = targetReviewers.map(r => `@${r}`).join(' ');
               await github.rest.issues.createComment({
                 ...repoInfo,
                 body: `The following reviewers have been auto-assigned: ${commentReviewers}.
                 Please proceed with the review at your earliest convenience. You may also request additional reviewers if appropriate. Thank you.`
               });
+              core.info(`✅ Step 3/3 Success: Comment added successfully`);
+              addCommentSuccess = true;
 
             } catch (error) {
-              core.error(`Failed to assign reviewers or add comment: ${error.message}`);
-              core.warning("Reviewer processing failed, but workflow will continue.");
+              // Precisely locate failed step and output full error details
+              core.error(`\n❌ Critical Error: One of the steps failed!`);
+              core.error(`Failed Step Details:`);
+              core.error(`- Step 1 (Fetch Current Reviewers): ${fetchCurrentReviewersSuccess ? '✅ Success' : '❌ Failed'}`);
+              core.error(`- Step 2 (Assign Missing Reviewers): ${assignMissingReviewersSuccess ? '✅ Success' : '❌ Failed'}`);
+              core.error(`- Step 3 (Add Comment): ${addCommentSuccess ? '✅ Success' : '❌ Failed'}`);
+              core.error(`\nFull Error Message: ${error.message}`);
+              core.error(`Error Stack Trace: ${error.stack}`);
+              core.error(`Error Response (if API): ${JSON.stringify(error.response?.data || 'No API response', null, 2)}`);
+              core.warning("\n⚠️ Reviewer processing failed, but workflow will continue.");
             }
+
+            core.info(`\n=== [Debug] Assign Reviewers End ===`);
