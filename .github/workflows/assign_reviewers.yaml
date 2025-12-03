@@ -209,7 +209,6 @@ jobs:
               return;
             }
 
-            const prNumber = context.issue.number;
             const repoInfo = {
               owner: context.repo.owner,
               repo: context.repo.repo,
