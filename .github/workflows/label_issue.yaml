@@ -1,5 +1,6 @@
 name: Auto-add hardware label
 on:
+  workflow_call:
   issues:
     types: [opened, edited]
 
