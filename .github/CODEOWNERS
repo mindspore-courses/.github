@@ -10,5 +10,9 @@
 /orange-pi-mindspore/ @xing-yiren
 /d2l-mindspore/ @xing-yiren
 
+# test
+/.github/ @xing-yiren
+/tmp/ @qhzhuang
+
 # Organization-wide global rules (fallback, 2nd)
 /. @wang-hua-2019 @lvyufeng
