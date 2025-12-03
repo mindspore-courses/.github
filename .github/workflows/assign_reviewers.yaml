@@ -248,7 +248,9 @@ jobs:
               core.info(`🔧 Step 3/3: Adding auto-assignment comment to PR #${prNumber}`);
               const commentReviewers = targetReviewers.map(r => `@${r}`).join(' ');
               await github.rest.issues.createComment({
-                ...repoInfo,
+                owner: repoOwner,
+                repo: repoName,
+                issue_number: prNumber,
                 body: `The following reviewers have been auto-assigned: ${commentReviewers}.
                 Please proceed with the review at your earliest convenience. You may also request additional reviewers if appropriate. Thank you.`
               });
